@@ -1,0 +1,34 @@
+#!/usr/bin/perl
+
+use strict;
+use utf8::all;
+use Statistics::Basic qw(:all);
+my @array;
+my $num = qr{[0-9]+};
+my $all = qr{[^\n].*};
+
+while(<>){
+	print "$_";
+	while(/($num),($all)/g){
+		my $index = 0;
+		$array[$index++] = $1;
+		my $tudo = $2;
+		while($tudo =~ /($num),($all)/){
+			$array[$index++] = $1;
+			$tudo = $2;
+		}
+		$array[$index++] = $tudo;
+		my $counter = 0;
+	}
+
+	my $media = mean(@array);
+	my $sttevTot = stddev(@array);
+	my @arrayPar = splice @array, 5, 5;
+	my $sttevPar = stddev (@arrayPar);
+	print ("Média : $media. Desvio Padrão Total: $sttevTot. Desvio Padrão Recente: $sttevPar\n");
+	my $result = 30-(2.5*(300/($media+15)))-($sttevTot/4)-$sttevPar;
+	if($result < 2){ $result = 2;}
+	print("Resultado = $result\n");
+	print("----------------------\n");
+
+}

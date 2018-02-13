@@ -1,0 +1,7 @@
+Este projeto foi desenvolvido na cadeira de Gestão de Redes
+
+
+Para este trabalho, foi construido uma aplicação, na linguagem Perl, que monitoriza, com
+um intervalo entre monitorizações adaptável às condições das partições.
+
+Para mais detalhes sobre o programa, ler relatorio.pdf
